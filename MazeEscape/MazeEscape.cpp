@@ -5,6 +5,7 @@
 #include <Windows.h>
 #include <vector>
 #include <string>
+
 using namespace std;
 
 
@@ -16,6 +17,7 @@ enum Ranks {
     A,//A-rank = 4 maze levels complete
     S//S-rank = 5 maze levels complete
     };
+
 
 void delay(unsigned int sec) {
 
@@ -451,6 +453,7 @@ WRONG_INPUT_YES_OR_NO:
 
 }
 
+
 void loadMazeFromFile(string& username, char maze[15][25]) {
     string userFileLocation = "UsersNames/" + username;
 
@@ -563,7 +566,6 @@ void printMaze(char maze[15][25]) {
 }
 
 
-
 void getPlayerPosition(int& playerRowPosition,int& playerColPosition, char maze[15][25]) {
 
 
@@ -622,11 +624,13 @@ MOVE_COMMAND:
 
 }
 
+
 void loseLive(int& livesLeft) {
 
     livesLeft--;
 
 }
+
 
 void playerNextMoveRowCol(int& playerNewRowPosition, int& playerNewColPosition, string& commandMove) {
 
@@ -653,6 +657,7 @@ void playerNextMoveRowCol(int& playerNewRowPosition, int& playerNewColPosition, 
 
 }
 
+
 void validationOfArrStart(int& startRow, int& startCol) {
 
     if (startCol == 23 && startRow == 13) {
@@ -671,6 +676,7 @@ void validationOfArrStart(int& startRow, int& startCol) {
         startCol++;
     }
 }
+
 
 void movePlayer(int& playerRowPosition
     , int& playerColPosition
@@ -775,9 +781,9 @@ void movePlayer(int& playerRowPosition
 
             if (key == "Found") {
                
-                levelStatus = "Complited";
+                levelStatus = "Completed";
                 
-                cout << "Level Complited!" << endl;
+                cout << "Level Completed!" << endl;
                 
                 delay(3);
                 
@@ -877,6 +883,7 @@ void movePlayer(int& playerRowPosition
 
 }
 
+
 void removeMazeFromFile(const string& username) {
 
     string userFileLocation = "UsersNames/" + username;
@@ -973,6 +980,7 @@ LEVEL_INPUT_C_RANK:
 
 }
 
+
 void logInSignUp(string& username,string& command) {
 
 LOG_IN_SIGN_UP:
@@ -1041,6 +1049,7 @@ LOG_IN_SIGN_UP:
     }
 
 }
+
 
 void playFromSaveOrNew(string& username, string& command,int& currentLevel) {
 
@@ -1134,6 +1143,7 @@ void playFromSaveOrNew(string& username, string& command,int& currentLevel) {
     }
 }
 
+
 void updateRank(string& rank) {
     if (rank == "E") {
 
@@ -1162,6 +1172,7 @@ void updateRank(string& rank) {
     }
 }
 
+
 void updateLevel(int& level) {
     
     if (level != 5) {
@@ -1171,6 +1182,7 @@ void updateLevel(int& level) {
     }
 
 }
+
 
 void newLevelMaze(string& username
     , string& rank
@@ -1233,11 +1245,14 @@ void newLevelMaze(string& username
 
 }
 
+
 void printCommands() {
 
     cout << "Up - W/w\nDown - S/s\nLeft - A/a\nRigth - D/d\nExit and save - exit\n" << endl;
 
 }
+
+
 void playDungeonEscape() {
 
     string username;
@@ -1303,8 +1318,7 @@ void playDungeonEscape() {
                 cout << "Coins: " << coins << endl;
                 cout << "Key: " << key << endl;
                 cout << "PlayerPosition: '" << playerPositionInfo << "'" << endl;
-                cout << "LevelStatus: " << levelStatus << endl;
-
+               
                 printMaze(maze);
 
                 if (livesLeft == 0) {
@@ -1314,6 +1328,7 @@ void playDungeonEscape() {
                     delay(5);
                     
                     livesLeft = 3;
+                    key = "Not Found";
                     
                     clearConsole();
 
@@ -1342,7 +1357,7 @@ void playDungeonEscape() {
                     , playerPositionInfo
                     , levelStatus);
 
-                if (levelStatus == "Complited") {
+                if (levelStatus == "Completed") {
 
                     updateRank(rank);
 
