@@ -1248,7 +1248,15 @@ void newLevelMaze(string& username
 
 void printCommands() {
 
+    cout << "Game movement:" << endl;
     cout << "Up - W/w\nDown - S/s\nLeft - A/a\nRigth - D/d\nExit and save - exit\n" << endl;
+    cout << "Game Info:" << endl;
+    cout << "@ - player (you)" << endl;
+    cout << "# - walls (takes 1 of your lives)" << endl;
+    cout << "C - coins (you get +1 coin)" << endl;
+    cout << "% - teleport (teleports you to the next teleport)" << endl;
+    cout << "& - key (unlocks the chest)" << endl;
+    cout << "X - chest (if you unclock the chest you win the game)\n" << endl;
 
 }
 
