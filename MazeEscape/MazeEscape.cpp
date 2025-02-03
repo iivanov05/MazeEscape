@@ -3,7 +3,6 @@
 #include <time.h>
 #include <stdlib.h>
 #include <Windows.h>
-#include <vector>
 #include <string>
 
 using namespace std;
